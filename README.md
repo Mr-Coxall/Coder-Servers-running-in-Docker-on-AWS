@@ -1,1 +1,6 @@
 # Coder Servers running in Docker on AWS
+
+- These are the steps to get multiple Coder IDE Servers up and running on an AWS EC2 machine, using docker and Nginx Proxy Manager and your own domain names.
+
+## AWS EC2 Security Group
+- 
