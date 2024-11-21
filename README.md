@@ -65,7 +65,7 @@
 ## Add a Coder Stack
 - install a Coder docker compose file (stack)
   - https://coder.com/docs/install/docker
-  - NOTES: for the Coder service change the outside port to a different number than all you other Coder docker instances ex: "1001:7080"
+  - NOTES: for the Coder service change the outside port to a different number than all you other Coder docker instances ex: "1001:7080". You might want to set it to "80" just for now so you can test to ensure everything is working. You will also need to find out the "docker group ID". For AWS it is most likely 994.
   - ``` BASH
     version: "3.9"
     services:
@@ -76,7 +76,7 @@
         # restart automatically
         restart: unless-stopped
         ports:
-          - "7080:7080"
+          - "80:7080"
         environment:
           CODER_PG_CONNECTION_URL: "postgresql://${POSTGRES_USER:-username}:${POSTGRES_PASSWORD:-password}@database/${POSTGRES_DB:-coder}?sslmode=disable"
           CODER_HTTP_ADDRESS: "0.0.0.0:7080"
@@ -88,8 +88,8 @@
         # the docker socket, you can uncomment the following
         # lines and set the group ID to one that has write
         # permissions on the docker socket.
-        #group_add:
-        #  - "998" # docker group on host
+        group_add:
+          - "994" # docker group on host
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
         depends_on:
@@ -121,3 +121,13 @@
     volumes:
       coder_data:
     ```
+
+## Coder Setup
+- login to Coder
+  - http://xx.xx.xx.xx:80 (if you set port to 80)
+- ![AWS Security Group](./images/Coder_Setup.png)
+- pick an Admin user login and password
+- create a "docker template", to ensure you have the correct docker group id
+-  ![AWS Security Group](./images/Docker_template.png)
+-  then create a workspace to ensure everything is OK
+-  ![AWS Security Group](./images/Docker_workspace.png)
