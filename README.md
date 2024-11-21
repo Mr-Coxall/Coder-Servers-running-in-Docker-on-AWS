@@ -62,8 +62,8 @@
   - accept that the connection has a "self-signed certificate"
   - create a user with password
 
-## Add a Coder Stact
-- install a Coder docker instance
+## Add a Coder Stack
+- install a Coder docker compose file (stack)
   - https://coder.com/docs/install/docker
   - NOTES: for the Coder service change the outside port to a different number than all you other Coder docker instances ex: "1001:7080"
   - ``` BASH
