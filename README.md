@@ -169,3 +169,4 @@
     - Email: admin@example.com
     - Password: changeme
   - ![AWS Security Group](./images/nginx_initial_login.png)
+  - change the default user and the password
