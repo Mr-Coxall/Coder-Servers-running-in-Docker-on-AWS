@@ -4,4 +4,4 @@
 
 ## AWS EC2 Security Group
 - create a new security group with SSH, HTTP & HTTPS access
-- 
+- ![AWS Security Group](./images/AWS_security_group.png)
