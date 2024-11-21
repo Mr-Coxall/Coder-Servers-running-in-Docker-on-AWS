@@ -20,3 +20,10 @@
   - Allocate Elastic IP address
   - Associate you your instance
   - ![AWS Elastic_IP](./images/AWS_Elastic_IP.png)
+
+## Connect to EC2 Instance
+- ssh into your instance
+  - ![AWS Elastic_IP](./images/AWS_EC2_Instance_SSH.png)
+- ``` BASH
+  sudo apt update
+  ```
