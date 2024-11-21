@@ -3,7 +3,7 @@
 - These are the steps to get multiple Coder IDE Servers up and running on an AWS EC2 machine, using docker and Nginx Proxy Manager and your own domain names.
 
 ## AWS EC2 Security Group
-- create a new security group with SSH, HTTP & HTTPS access
+- create a new security group with SSH, HTTP, HTTPS & 9443 (for portainer) access
 - ![AWS Security Group](./images/AWS_security_group.png)
 
 ## AWS EC2 Instance
@@ -49,3 +49,15 @@
 
   sudo docker run hello-world
   ```
+
+## Install Portainer CE (Community Edition)
+- install portainer
+  - https://docs.portainer.io/start/install-ce/server/docker/linux
+- ``` BASH
+  sudo docker volume create portainer_data
+  sudo docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:2.21.4
+  ```
+- login to portainer (https://xx.xx.xx.xx:9443)
+  - where xx.xx.xx.xx = Elastic IP
+  - accept that the connection has a "self-signed certificate"
+  - create a user with password
