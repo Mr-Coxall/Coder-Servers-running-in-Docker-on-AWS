@@ -164,7 +164,7 @@
         - ./letsencrypt:/etc/letsencrypt
     ```
   - confirm you can login
-    - http://xx.xx.xx.xx🈲
+    - http://xx.xx.xx.xx:81
   - the defaults are:
     - Email: admin@example.com
     - Password: changeme
