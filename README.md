@@ -65,6 +65,7 @@
 ## Add a Coder Stact
 - install a Coder docker instance
   - https://coder.com/docs/install/docker
+  - NOTES: for the Coder service change the outside port to a different number than all you other Coder docker instances ex: "1001:7080"
   - ``` BASH
     version: "3.9"
     services:
@@ -73,7 +74,7 @@
         # other automations.
         image: ghcr.io/coder/coder:${CODER_VERSION:-latest}
         # restart automatically
-        #???
+        restart: unless-stopped
         ports:
           - "7080:7080"
         environment:
@@ -99,7 +100,7 @@
         # More versions here: https://hub.docker.com/_/postgres
         image: "postgres:16"
         # restart automatically
-        #????
+        restart: unless-stopped
         ports:
           - "5432:5432"
         environment:
