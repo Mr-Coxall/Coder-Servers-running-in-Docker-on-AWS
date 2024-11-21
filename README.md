@@ -131,3 +131,41 @@
 -  ![AWS Security Group](./images/Docker_template.png)
 -  then create a workspace to ensure everything is OK
 -  ![AWS Security Group](./images/Docker_workspace.png)
+
+## Install Docker Nginx Proxy Manager Stack
+- before starting, change the port for Coder to not be on 80 any more (since Nginx will be using it)
+- create a stack for Nginx Proxy Manager
+  - https://nginxproxymanager.com/setup/
+- ```BASH
+  version: '3.8'
+  services:
+    app:
+      image: 'jc21/nginx-proxy-manager:latest'
+      restart: unless-stopped
+      ports:
+        # These ports are in format <host-port>:<container-port>
+        - '80:80' # Public HTTP Port
+        - '443:443' # Public HTTPS Port
+        - '81:81' # Admin Web Port
+        # Add any other Stream port you want to expose
+        # - '21:21' # FTP
+
+      # Uncomment the next line if you uncomment anything in the section
+      # environment:
+        # Uncomment this if you want to change the location of
+        # the SQLite DB file within the container
+        # DB_SQLITE_FILE: "/data/database.sqlite"
+
+        # Uncomment this if IPv6 is not enabled on your host
+        # DISABLE_IPV6: 'true'
+
+      volumes:
+        - ./data:/data
+        - ./letsencrypt:/etc/letsencrypt
+    ```
+  - confirm you can login
+    - http://xx.xx.xx.xx🈲
+  - the defaults are:
+    - Email: admin@example.com
+    - Password: changeme
+  - ![AWS Security Group](./images/nginx_initial_login.png)
