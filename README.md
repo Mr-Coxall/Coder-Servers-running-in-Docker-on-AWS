@@ -207,3 +207,6 @@
  
 ## Create Proxy Host in Nginx
 - now go back to Nginx and create a Proxy Host to match this A record
+  - ![AWS Security Group](./images/nginx_proxy_host_A.png)
+  - do this first and save then come back and edit to add the following
+  - ![AWS Security Group](./images/nginx_proxy_host_B.png)
