@@ -83,6 +83,7 @@
           # You'll need to set CODER_ACCESS_URL to an IP or domain
           # that workspaces can reach. This cannot be localhost
           # or 127.0.0.1 for non-Docker templates!
+          # CODER_ACCESS_URL: "${CODER_ACCESS_URL}"
           CODER_ACCESS_URL: "${CODER_ACCESS_URL}"
           # allow admin to open all user containers
           CODER_DANGEROUS_ALLOW_PATH_APP_SITE_OWNER_ACCESS: true
@@ -209,4 +210,7 @@
 - now go back to Nginx and create a Proxy Host to match this A record
   - ![AWS Security Group](./images/nginx_proxy_host_A.png)
   - do this first and save then come back and edit to add the following
+  - - NOTE it is http and NOT https!
   - ![AWS Security Group](./images/nginx_proxy_host_B.png)
+- go back to the portainer stack for coder and change the docker compose file to add in the URL that Coder is now pointing to
+  - CODER_ACCESS_URL: "https://ics4uv.mths.ca"
