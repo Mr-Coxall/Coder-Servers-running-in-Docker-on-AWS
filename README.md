@@ -199,3 +199,11 @@
     - CODER_OAUTH2_GITHUB_CLIENT_ID: "xxxxxxxxxxxx"
     - CODER_OAUTH2_GITHUB_CLIENT_SECRET: "yyyyyyyyyyyyyyyyyyyyyyyyyyy"
 - now update your Coder Compose file stack, to add in the new information
+
+## Create DNS A Record
+- go to your domain hoster and add in an "A" record with the IP address and the URL you chose
+  - for example: ics4uv.ide.mths.ca
+  - NOW WAIT: remember it could take several hours for this new entry to propigate through the internet!
+ 
+## Create Proxy Host in Nginx
+- now go back to Nginx and create a Proxy Host to match this A record
