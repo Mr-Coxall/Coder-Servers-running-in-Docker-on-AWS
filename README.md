@@ -184,8 +184,7 @@
   - this Org is stated in the Coder Docker Compose YAML file
     - CODER_OAUTH2_GITHUB_ALLOWED_ORGS: "some-github-org-id"
   - https://github.com/organizations/plan
-    - 
-- ``` BASH
+- invite 
 
 ## Create GitHub Auth
 - from the new GitHub Org's landing page, goto "Settings, Developer Settings, OAuth apps" and create a new OAuth App
@@ -194,3 +193,9 @@
     - if you are using Nginx and a domain, enter the full domain you will be using
   - create the app
     -  ![AWS Security Group](./images/Github_OAuth.png)
+  - click the "Generate a new client secret"
+    - when you generate it, ensure you copy it so you have it!
+  - take the "Client ID" and "Client secrets" and place them in the Coder Docker Compose YAML file
+    - CODER_OAUTH2_GITHUB_CLIENT_ID: "xxxxxxxxxxxx"
+    - CODER_OAUTH2_GITHUB_CLIENT_SECRET: "yyyyyyyyyyyyyyyyyyyyyyyyyyy"
+- now update your Coder Compose file stack, to add in the new information
