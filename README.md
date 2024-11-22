@@ -84,6 +84,13 @@
           # that workspaces can reach. This cannot be localhost
           # or 127.0.0.1 for non-Docker templates!
           CODER_ACCESS_URL: "${CODER_ACCESS_URL}"
+          # allow admin to open all user containers
+          CODER_DANGEROUS_ALLOW_PATH_APP_SITE_OWNER_ACCESS: true
+          # for GitHub Auth
+          CODER_OAUTH2_GITHUB_ALLOW_SIGNUPS: true
+          CODER_OAUTH2_GITHUB_ALLOWED_ORGS: "some-github-org-id"
+          CODER_OAUTH2_GITHUB_CLIENT_ID: "xxxxxxxxxxxx"
+          CODER_OAUTH2_GITHUB_CLIENT_SECRET: "yyyyyyyyyyyyyyyyyyyyyyyyyyy"
         # If the coder user does not have write permissions on
         # the docker socket, you can uncomment the following
         # lines and set the group ID to one that has write
@@ -170,3 +177,20 @@
     - Password: changeme
   - ![AWS Security Group](./images/nginx_initial_login.png)
   - change the default user and the password
+
+## Create GitHub Organization
+- besides user login, we will add GitHub Auth
+  - we will restrict login to a GitHub Org, and then just invite the users to that GitHub Org to give them access
+  - this Org is stated in the Coder Docker Compose YAML file
+    - CODER_OAUTH2_GITHUB_ALLOWED_ORGS: "some-github-org-id"
+  - https://github.com/organizations/plan
+    - 
+- ``` BASH
+
+## Create GitHub Auth
+- from the new GitHub Org's landing page, goto "Settings, Developer Settings, OAuth apps" and create a new OAuth App
+  - the "Homepage URL" and the "Authorization callback URL" need to be the URL that you will be exposing your Coder IDE on to the public
+    - if you are just using an IP address, enter that
+    - if you are using Nginx and a domain, enter the full domain you will be using
+  - create the app
+    -  ![AWS Security Group](./images/Github_OAuth.png)
