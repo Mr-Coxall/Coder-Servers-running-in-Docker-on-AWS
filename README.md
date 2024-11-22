@@ -214,3 +214,11 @@
   - ![AWS Security Group](./images/nginx_proxy_host_B.png)
 - go back to the portainer stack for coder and change the docker compose file to add in the URL that Coder is now pointing to
   - CODER_ACCESS_URL: "https://ics4uv.mths.ca"
+ 
+## Domain Working !
+![AWS Security Group](./images/domain_working.png)
+
+## Change your Login to GitHub
+- if you want you can change your login to GitHub by going to yourr account, setting and security
+- click "GitHub" under "Single Sign On"
+ - ![AWS Security Group](./images/single_signon.png)
